@@ -1,0 +1,48 @@
+﻿@page "/students"
+@using BlazorApp.Shared 
+@inject HttpClient Http
+
+<h1>Students</h1>
+
+@if (students == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>School</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in students)
+            {
+                <tr>
+                    <td>@item.StudentId</td>
+                    <td>@item.FirstName @item.LastName</td>
+                    <td>@item.School</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Student[] students = new Student[]{};
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            students = await Http.GetFromJsonAsync<Student[]>("/api/students") ?? new Student[]{};
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
+    }
+}
