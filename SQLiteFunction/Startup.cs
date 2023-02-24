@@ -2,12 +2,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using SQLiteFunction.Models;
+using System.IO;
+using System;
 
 [assembly: FunctionsStartup(typeof(SQLiteFunction.StartUp))]
 namespace SQLiteFunction
 {
     public class StartUp : FunctionsStartup
     {
+
+
+
         public override void Configure(IFunctionsHostBuilder builder)
         {
             builder.Services.AddDbContext<ApplicationDbContext>(options =>

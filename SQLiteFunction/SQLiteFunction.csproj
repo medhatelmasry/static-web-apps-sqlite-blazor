@@ -27,7 +27,7 @@
   </ItemGroup>
   <ItemGroup>
  <None Update="school.db">
-   <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+   <CopyToOutputDirectory>Always</CopyToOutputDirectory>
  </None>  
 </ItemGroup>
 </Project>
