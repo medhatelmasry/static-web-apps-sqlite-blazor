@@ -7,7 +7,7 @@ public class Utils
 {
     const string DevEnvValue = "Development";
     const string DBPath = "./school.db";
-    public const string Azure_DBPath = "D:/home/school.db";
+    public const string Azure_DBPath = "/home/school.db";
     public static string GetSQLiteConnectionString()
     {
         bool isDevEnv = Environment.GetEnvironmentVariable("AZURE_FUNCTIONS_ENVIRONMENT") == DevEnvValue ? true : false;
